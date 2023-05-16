@@ -1,1 +1,1 @@
-# Generated using FASTIFY-Generator
+This is the endpoint for minelibs made with fastify 

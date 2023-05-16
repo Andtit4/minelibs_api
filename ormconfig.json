@@ -1,6 +1,6 @@
 {
-    "type": "mongodb",
-    "url": "mongodb://localhost:27017/fastify",
+    "type": "mysql",
+    "url": "mysql://localhost:27017/fastify",
     "useNewUrlParser": true,
     "synchronize": true,
     "logging": true,

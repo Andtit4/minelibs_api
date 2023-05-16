@@ -1,20 +1,26 @@
 import 'reflect-metadata';
+import 'dotenv/config';
+
 import { createConnection, getConnectionOptions } from 'typeorm';
-import { Product } from '../models/index';
+import { Users } from '../models/index';
 
 async function db (server) {
 	try {
 		const connectionOptions = await getConnectionOptions();
 		Object.assign(connectionOptions, {
 			options: { encrypt: true },
-			entities: [Product]
+			host: process.env.TYPEORM_HOST || 'mysql-prodb.alwaysdata.net',
+			username: process.env.TYPEORM_USERNAME || 'prodb',
+			password: process.env.TYPEORM_PASSWORD || 'Motdep@sse2022',
+			database: process.env.TYPEORM_DATABASE || 'prodb_minelibs',
+			entities: [Users]
 		});
 
 		const connection = await createConnection(connectionOptions);
 		console.log('database connected');
 
 		server.decorate('db', {
-			products: connection.getRepository(Product)
+			users: connection.getRepository(Users)
 		});
     
 	} catch (error) {
