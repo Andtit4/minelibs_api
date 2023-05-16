@@ -17,12 +17,6 @@ export class Users {
   @Column()
   pass: string
 
-  @Column()
-  unit: number
-
-  @Column()
-  category: string
-
   @CreateDateColumn()
   created_at: string
 
